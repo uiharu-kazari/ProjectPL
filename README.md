@@ -1,8 +1,8 @@
-#プロジェクトはプロジェクトランドスケープ
+# プロジェクトはプロジェクトランドスケープ
 
-##This is project landscape.
+## This is project persistent landscape.
 
-##このプロジェクトはプロジェクトランドスケープです。
+## このプロジェクトはプロジェクトランドスケープです。
 
 このプロジェクトの目標は論文「Topological data analysis of financial time series: Landscapes of crashes」の結果を再現することです。
 
