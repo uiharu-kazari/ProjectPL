@@ -26,6 +26,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import dionysus as d
+from termcolor import colored
+from functools import reduce
 
 
 ###Preprocessing Procedures
@@ -43,15 +45,93 @@ S=pd.read_csv('SP500.csv')
 SL=[D,N,R,S]
 
 
-def DateCp(array):
+def DateAdjC(array):
     """
     Select out date and adjusted closing prices
     """
     return array[['Date','Adj Close']]
 
-for i in range(4):
-    SL[i]=DateCp(SL[i])
+SL=list(map(DateAdjC,SL))
 
-#
+SL[0].columns=['Date','DJIA']
+SL[1].columns=['Date','NASDAQ']
+SL[2].columns=['Date','RU2K']
+SL[3].columns=['Date','SP500']
 
-#t.loc[t['Adj Close'].values>25500]
+#See if in adjusted close prices NaN exists.
+
+if True in set(list(map(lambda x: x.isna().values.any(),SL))):
+    print(colored("Warning! NaN in input number",'blue'))
+
+
+#Calculate log values
+#Specially designed
+def logValue(df,N,name=1):
+    #input is a pandas frame
+    array=df.copy()
+    array[array.columns[N]]=np.log(array[array.columns[N]].values)
+    #Reset column names:
+    original_name=array.columns[N]
+    if name==1:
+        name=original_name
+    array=array.rename(index=str, columns={original_name:name})
+    #return value is a pandas frame
+    return array
+
+#natural log of closing prices
+SL=list(map(lambda x:logValue(x,1,1),SL))
+#This is the end of preprocessing data
+
+
+
+#Merge the four dataframes into one dataframe
+#Rewrite this as a function
+
+TPC = reduce(lambda left,right: pd.merge(left,right,on='Date'), SL)
+
+#Normalize the data? Or use the log return?
+
+#Slicing the point cloud, and calculate its persistent diagram
+
+
+from scipy.spatial import distance
+
+#TO BE ADDED:
+#Each point cloud as an instance of a class
+#And most functions included as methods.
+
+def PersistentDiagram(nparray,skeletondim=2):
+    DisM=distance.pdist(nparray,'euclidean')
+    M=DisM.max()
+    VRC=d.fill_rips(nparray,skeletondim,M)
+    ph=d.homology_persistence(VRC)
+    dgms=d.init_diagrams(ph,VRC)
+    return dgms
+
+
+def PersistentLandscape(diagram):
+    pass
+
+d.plot.plot_diagram(dgms[1], show = True)
+
+
+
+
+TPC[TPC.columns[1:]][:90]
+
+
+
+
+
+d.plot.plot_diagram(dgms[1], show = True)
+
+
+
+
+
+
+
+
+
+
+
