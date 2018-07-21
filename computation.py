@@ -108,6 +108,8 @@ def muk(k,bdpairs):
     return lambda x:kthM(x)
 
 #Plot the landscape function
+    
+bdp=np.array([(1,5),(2,7),(3,6)])
 fig,ax=plt.subplots(figsize=[15,7])
 x=np.linspace(0,8,800);
 ax.plot(x,muk(1,bdp)(x),lw=4,color='blue',ls='--',alpha=0.5,label=r'k=1')
@@ -121,9 +123,33 @@ plt.show()
 import scipy.integrate as integrate
 result = integrate.quad(lambda x: x, 0, 4.5)
 
-def pNormBarCode(bdpairs):
-    pass
+def mukInt(p,k,bdpairs):
+    """
+    Calculate the integration over the nonzero zone of 
+    muk to the p-th power
+    """
+    birth=sorted(bdpairs[:,0])
+    death=sorted(bdpairs[:,1],reverse=True)
+    #Notice that muk is positive semidefinite
+    result=integrate.quad(lambda x:muk(k,bdpairs)(x)**p,birth[k-1],death[k-1])
+    return np.array(result)
+    
+import const
 
+def pNormBarCode(p,bdpairs):
+    l=len(bdpairs)
+    IntRes=np.array([mukInt(p,k,bdpairs) for k in range(1,l+1)])
+    Values=IntRes[:,0]
+    Errors=IntRes[:,1]
+    if (Errors>const.IntEpsilon).any():
+        print(colored("Warning! Integration Error Too Large!!",'red'))
+    return np.power(Values.sum(),1/p)
+
+def OneNormBarCode(bdpairs):
+    return np.square(bdpairs[:,1]-bdpairs[:,0]).sum()/4
+
+def infNormBarCode(bdpairs):
+    return (bdpairs[:,1]-bdpairs[:,0]).max()
 
 #The following code gives a toy instance for manipulating pds.
 
@@ -131,7 +157,6 @@ test=TPC[TPC.columns[1:]][:90].values
 pdia=PersistentDiagram(test)
 #We will use pd[1], which gives the persistent diagram in H_1
 
-bdp=np.array([(1,5),(2,7),(3,6)])
 #    return lambda x:[f[i](x) for i in range(l)]
 #.sort[-k]
     
