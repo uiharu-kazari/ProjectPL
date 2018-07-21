@@ -80,56 +80,7 @@ def logValue(df,N,name=1):
 
 #natural log of closing prices
 SL=list(map(lambda x:logValue(x,1,1),SL))
-#This is the end of preprocessing data
-
-
-
-#Merge the four dataframes into one dataframe
-#Rewrite this as a function
-
-TPC = reduce(lambda left,right: pd.merge(left,right,on='Date'), SL)
-
-#Normalize the data? Or use the log return?
-
-#Slicing the point cloud, and calculate its persistent diagram
-
-
-from scipy.spatial import distance
-
-#TO BE ADDED:
-#Each point cloud as an instance of a class
-#And most functions included as methods.
-
-def PersistentDiagram(nparray,skeletondim=2):
-    DisM=distance.pdist(nparray,'euclidean')
-    M=DisM.max()
-    VRC=d.fill_rips(nparray,skeletondim,M)
-    ph=d.homology_persistence(VRC)
-    dgms=d.init_diagrams(ph,VRC)
-    return dgms
-
-
-def PersistentLandscape(diagram):
-    pass
-
-d.plot.plot_diagram(dgms[1], show = True)
-
-
-
-
-TPC[TPC.columns[1:]][:90]
-
-
-
-
-
-d.plot.plot_diagram(dgms[1], show = True)
-
-
-
-
-
-
+#This is the end of input and preprocessing data phase
 
 
 

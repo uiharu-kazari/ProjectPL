@@ -19,6 +19,6 @@ d.plot.plot_diagram(dgms[1], show = True)
 from scipy.spatial import distance
 
 
-distance.euclidean(u, v)
+#distance.euclidean(u, v)
 
-Y = distance.pdist(X, 'euclidean')
+#Y = distance.pdist(X, 'euclidean')
