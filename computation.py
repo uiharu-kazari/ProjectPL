@@ -63,7 +63,7 @@ def plf(bdpair):
 
 def dualmap(func_iter,value):
     """
-    Apply multiple functions to one value, in list form
+    Apply multiple functions to one value, in list form.
     """
     return [func(value) for func in func_iter]
 
@@ -74,14 +74,27 @@ def dualmap(func_iter,value):
 #Persistence landscape function with all the k-th,
 #Might be useful in calculating norms.
 def muAll(bdpairs):
+    """
+    Return ALL plf fucntions based on a given birth-death pair
+    """
     l=len(bdpairs)
     f=lambda i:plf(bdpairs[i])
     return lambda x:dualmap(list(map(f,range(l))),x)
 
         
 def muk(k,bdpairs):
+    """
+    Return the k-th maximum, vector supported.
+    """
     l=len(bdpairs)
     f=lambda i:plf(bdpairs[i])
+    def veczeros(x):
+        if isinstance(x,int) or isinstance(x,float):
+            return 0
+        else:
+            return np.array([0]*len(x))
+    if k > l:
+        return lambda x:veczeros(x)
     def EvaluateAtOnePoint(x):
         values=dualmap(list(map(f,range(l))),x)
         return sorted(values,reverse=True)[k-1]
