@@ -9,22 +9,6 @@ Created on Fri Jul 20 18:33:27 2018
 
 #Phase Two
 
-#Merge the four dataframes into one dataframe
-#Normalize the data? Or use the log return?
-
-def dfInfiniteMerge(dflist,colname):
-    """
-    Merge dataframes in dflist, according to a common column name.
-    """
-    return reduce(lambda left,right:pd.merge(left,right,on=colname),dflist)
-
-TPC=dfInfiniteMerge(SL,'Date')
-
-
-
-
-#Slicing the point cloud, and calculate its persistent diagram
-
 
 from scipy.spatial import distance
 
@@ -32,13 +16,13 @@ from scipy.spatial import distance
 #Each point cloud as an instance of a class
 #And most functions included as methods.
 
-def PersistentDiagram(nparray,skeletondim=2):
+def PersistentDiagram(nparray,dim=1,skeletondim=2):
     DisM=distance.pdist(nparray,'euclidean')
     M=DisM.max()
     VRC=d.fill_rips(nparray,skeletondim,M)
     ph=d.homology_persistence(VRC)
     dgms=d.init_diagrams(ph,VRC)
-    return dgms
+    return dgms[dim]
 
 
 
@@ -82,6 +66,9 @@ def muAll(bdpairs):
     return lambda x:dualmap(list(map(f,range(l))),x)
 
         
+###
+#Can use enumerate to simplify the codes in the function below
+###
 def muk(k,bdpairs):
     """
     Return the k-th maximum, vector supported.
@@ -136,52 +123,39 @@ def mukInt(p,k,bdpairs):
     
 import const
 
-def pNormBarCode(p,bdpairs):
-    l=len(bdpairs)
-    IntRes=np.array([mukInt(p,k,bdpairs) for k in range(1,l+1)])
-    Values=IntRes[:,0]
-    Errors=IntRes[:,1]
-    if (Errors>const.IntEpsilon).any():
-        print(colored("Warning! Integration Error Too Large!!",'red'))
-    return np.power(Values.sum(),1/p)
 
 def OneNormBarCode(bdpairs):
+    """
+    Direclty calculate the 1-norm of a persistent diagram
+    based on analytic formulas.
+    """
     return np.square(bdpairs[:,1]-bdpairs[:,0]).sum()/4
 
 def infNormBarCode(bdpairs):
+    """
+    Direclty calculate the infinite norm of a persistent diagram
+    based on analytic formulas.
+    """
+    #Add checker for bdparis empty
     return (bdpairs[:,1]-bdpairs[:,0]).max()
 
-#The following code gives a toy instance for manipulating pds.
+class PrecisionWarning(Warning):
+    pass
 
-test=TPC[TPC.columns[1:]][:90].values
-pdia=PersistentDiagram(test)
-#We will use pd[1], which gives the persistent diagram in H_1
-
-#    return lambda x:[f[i](x) for i in range(l)]
-#.sort[-k]
-    
-
-#There exists analytic formulas to calculate the p-norm of a persistence
-#diagram
-        
-
-
-
-#d.plot.plot_diagram(dgms[1], show = True)
-
-
-
-
-#TPC[TPC.columns[1:]][:90]
-
-
-
-
-
-#d.plot.plot_diagram(dgms[1], show = True)
-
-
-
-
-
-
+def pNormBarCode(p,bdpairs):
+    """
+    Compute the p-norm of a persistent diagram.
+    """
+    if p==1:
+        return OneNormBarCode(bdpairs)
+    elif p=='inf':
+        return infNormBarCode(bdpairs)
+    else:        
+        l=len(bdpairs)
+        IntRes=np.array([mukInt(p,k,bdpairs) for k in range(1,l+1)])
+        Values=IntRes[:,0]
+        Errors=IntRes[:,1]
+        if (Errors>const.IntEpsilon).any():
+            warnings.warn(colored("Warning!\
+Integration Error Too Large!!",'magenta'),PrecisionWarning)
+        return np.power(Values.sum(),1/p)

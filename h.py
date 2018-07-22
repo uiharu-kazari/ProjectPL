@@ -26,6 +26,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import dionysus as d
+import warnings
 from termcolor import colored
 from functools import reduce
 
@@ -61,7 +62,7 @@ SL[3].columns=['Date','SP500']
 #See if in adjusted close prices NaN exists.
 
 if True in set(list(map(lambda x: x.isna().values.any(),SL))):
-    print(colored("Warning! NaN in input number",'blue'))
+    warnings.warn(colored("Warning! NaN in input number",'blue'),SyntaxWarning)
 
 
 #Calculate log values
