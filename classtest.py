@@ -11,7 +11,7 @@ class Pet(object):
     def __init__(self, name, species):
         self.name = name
         self.species = species
-
+        self.eee=666
     def getName(self):
         return self.name
 

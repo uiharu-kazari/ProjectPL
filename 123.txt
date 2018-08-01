@@ -1,0 +1,1594 @@
+Help on class Scatter in module plotly.graph_objs._scatter:
+
+class Scatter(plotly.basedatatypes.BaseTraceType)
+ |  Base class for the all trace types.
+ |  
+ |  Specific trace type classes (Scatter, Bar, etc.) are code generated as
+ |  subclasses of this class.
+ |  
+ |  Method resolution order:
+ |      Scatter
+ |      plotly.basedatatypes.BaseTraceType
+ |      plotly.basedatatypes.BaseTraceHierarchyType
+ |      plotly.basedatatypes.BasePlotlyType
+ |      builtins.object
+ |  
+ |  Methods defined here:
+ |  
+ |  __init__(self, arg=None, cliponaxis=None, connectgaps=None, customdata=None, customdatasrc=None, dx=None, dy=None, error_x=None, error_y=None, fill=None, fillcolor=None, hoverinfo=None, hoverinfosrc=None, hoverlabel=None, hoveron=None, hovertext=None, hovertextsrc=None, ids=None, idssrc=None, legendgroup=None, line=None, marker=None, mode=None, name=None, opacity=None, r=None, rsrc=None, selected=None, selectedpoints=None, showlegend=None, stream=None, t=None, text=None, textfont=None, textposition=None, textpositionsrc=None, textsrc=None, tsrc=None, uid=None, unselected=None, visible=None, x=None, x0=None, xaxis=None, xcalendar=None, xsrc=None, y=None, y0=None, yaxis=None, ycalendar=None, ysrc=None, **kwargs)
+ |      Construct a new Scatter object
+ |      
+ |      The scatter trace type encompasses line charts, scatter charts,
+ |      text charts, and bubble charts. The data visualized as scatter
+ |      point or lines is set in `x` and `y`. Text (appearing either on
+ |      the chart or on hover only) is via `text`. Bubble charts are
+ |      achieved by setting `marker.size` and/or `marker.color` to
+ |      numerical arrays.
+ |      
+ |      Parameters
+ |      ----------
+ |      arg
+ |          dict of properties compatible with this constructor or
+ |          an instance of plotly.graph_objs.Scatter
+ |      cliponaxis
+ |          Determines whether or not markers and text nodes are
+ |          clipped about the subplot axes. To show markers and
+ |          text nodes above axis lines and tick labels, make sure
+ |          to set `xaxis.layer` and `yaxis.layer` to *below
+ |          traces*.
+ |      connectgaps
+ |          Determines whether or not gaps (i.e. {nan} or missing
+ |          values) in the provided data arrays are connected.
+ |      customdata
+ |          Assigns extra data each datum. This may be useful when
+ |          listening to hover, click and selection events. Note
+ |          that, *scatter* traces also appends customdata items in
+ |          the markers DOM elements
+ |      customdatasrc
+ |          Sets the source reference on plot.ly for  customdata .
+ |      dx
+ |          Sets the x coordinate step. See `x0` for more info.
+ |      dy
+ |          Sets the y coordinate step. See `y0` for more info.
+ |      error_x
+ |          plotly.graph_objs.scatter.ErrorX instance or dict with
+ |          compatible properties
+ |      error_y
+ |          plotly.graph_objs.scatter.ErrorY instance or dict with
+ |          compatible properties
+ |      fill
+ |          Sets the area to fill with a solid color. Use with
+ |          `fillcolor` if not *none*. *tozerox* and *tozeroy* fill
+ |          to x=0 and y=0 respectively. *tonextx* and *tonexty*
+ |          fill between the endpoints of this trace and the
+ |          endpoints of the trace before it, connecting those
+ |          endpoints with straight lines (to make a stacked area
+ |          graph); if there is no trace before it, they behave
+ |          like *tozerox* and *tozeroy*. *toself* connects the
+ |          endpoints of the trace (or each segment of the trace if
+ |          it has gaps) into a closed shape. *tonext* fills the
+ |          space between two traces if one completely encloses the
+ |          other (eg consecutive contour lines), and behaves like
+ |          *toself* if there is no trace before it. *tonext*
+ |          should not be used if one trace does not enclose the
+ |          other.
+ |      fillcolor
+ |          Sets the fill color. Defaults to a half-transparent
+ |          variant of the line color, marker color, or marker line
+ |          color, whichever is available.
+ |      hoverinfo
+ |          Determines which trace information appear on hover. If
+ |          `none` or `skip` are set, no information is displayed
+ |          upon hovering. But, if `none` is set, click and hover
+ |          events are still fired.
+ |      hoverinfosrc
+ |          Sets the source reference on plot.ly for  hoverinfo .
+ |      hoverlabel
+ |          plotly.graph_objs.scatter.Hoverlabel instance or dict
+ |          with compatible properties
+ |      hoveron
+ |          Do the hover effects highlight individual points
+ |          (markers or line points) or do they highlight filled
+ |          regions? If the fill is *toself* or *tonext* and there
+ |          are no markers or text, then the default is *fills*,
+ |          otherwise it is *points*.
+ |      hovertext
+ |          Sets hover text elements associated with each (x,y)
+ |          pair. If a single string, the same string appears over
+ |          all the data points. If an array of string, the items
+ |          are mapped in order to the this trace's (x,y)
+ |          coordinates. To be seen, trace `hoverinfo` must contain
+ |          a *text* flag.
+ |      hovertextsrc
+ |          Sets the source reference on plot.ly for  hovertext .
+ |      ids
+ |          Assigns id labels to each datum. These ids for object
+ |          constancy of data points during animation. Should be an
+ |          array of strings, not numbers or any other type.
+ |      idssrc
+ |          Sets the source reference on plot.ly for  ids .
+ |      legendgroup
+ |          Sets the legend group for this trace. Traces part of
+ |          the same legend group hide/show at the same time when
+ |          toggling legend items.
+ |      line
+ |          plotly.graph_objs.scatter.Line instance or dict with
+ |          compatible properties
+ |      marker
+ |          plotly.graph_objs.scatter.Marker instance or dict with
+ |          compatible properties
+ |      mode
+ |          Determines the drawing mode for this scatter trace. If
+ |          the provided `mode` includes *text* then the `text`
+ |          elements appear at the coordinates. Otherwise, the
+ |          `text` elements appear on hover. If there are less than
+ |          20 points, then the default is *lines+markers*.
+ |          Otherwise, *lines*.
+ |      name
+ |          Sets the trace name. The trace name appear as the
+ |          legend item and on hover.
+ |      opacity
+ |          Sets the opacity of the trace.
+ |      r
+ |          For legacy polar chart only.Please switch to
+ |          *scatterpolar* trace type.Sets the radial coordinates.
+ |      rsrc
+ |          Sets the source reference on plot.ly for  r .
+ |      selected
+ |          plotly.graph_objs.scatter.Selected instance or dict
+ |          with compatible properties
+ |      selectedpoints
+ |          Array containing integer indices of selected points.
+ |          Has an effect only for traces that support selections.
+ |          Note that an empty array means an empty selection where
+ |          the `unselected` are turned on for all points, whereas,
+ |          any other non-array values means no selection all where
+ |          the `selected` and `unselected` styles have no effect.
+ |      showlegend
+ |          Determines whether or not an item corresponding to this
+ |          trace is shown in the legend.
+ |      stream
+ |          plotly.graph_objs.scatter.Stream instance or dict with
+ |          compatible properties
+ |      t
+ |          For legacy polar chart only.Please switch to
+ |          *scatterpolar* trace type.Sets the angular coordinates.
+ |      text
+ |          Sets text elements associated with each (x,y) pair. If
+ |          a single string, the same string appears over all the
+ |          data points. If an array of string, the items are
+ |          mapped in order to the this trace's (x,y) coordinates.
+ |          If trace `hoverinfo` contains a *text* flag and
+ |          *hovertext* is not set, these elements will be seen in
+ |          the hover labels.
+ |      textfont
+ |          Sets the text font.
+ |      textposition
+ |          Sets the positions of the `text` elements with respects
+ |          to the (x,y) coordinates.
+ |      textpositionsrc
+ |          Sets the source reference on plot.ly for  textposition
+ |          .
+ |      textsrc
+ |          Sets the source reference on plot.ly for  text .
+ |      tsrc
+ |          Sets the source reference on plot.ly for  t .
+ |      uid
+ |      
+ |      unselected
+ |          plotly.graph_objs.scatter.Unselected instance or dict
+ |          with compatible properties
+ |      visible
+ |          Determines whether or not this trace is visible. If
+ |          *legendonly*, the trace is not drawn, but can appear as
+ |          a legend item (provided that the legend itself is
+ |          visible).
+ |      x
+ |          Sets the x coordinates.
+ |      x0
+ |          Alternate to `x`. Builds a linear space of x
+ |          coordinates. Use with `dx` where `x0` is the starting
+ |          coordinate and `dx` the step.
+ |      xaxis
+ |          Sets a reference between this trace's x coordinates and
+ |          a 2D cartesian x axis. If *x* (the default value), the
+ |          x coordinates refer to `layout.xaxis`. If *x2*, the x
+ |          coordinates refer to `layout.xaxis2`, and so on.
+ |      xcalendar
+ |          Sets the calendar system to use with `x` date data.
+ |      xsrc
+ |          Sets the source reference on plot.ly for  x .
+ |      y
+ |          Sets the y coordinates.
+ |      y0
+ |          Alternate to `y`. Builds a linear space of y
+ |          coordinates. Use with `dy` where `y0` is the starting
+ |          coordinate and `dy` the step.
+ |      yaxis
+ |          Sets a reference between this trace's y coordinates and
+ |          a 2D cartesian y axis. If *y* (the default value), the
+ |          y coordinates refer to `layout.yaxis`. If *y2*, the y
+ |          coordinates refer to `layout.yaxis2`, and so on.
+ |      ycalendar
+ |          Sets the calendar system to use with `y` date data.
+ |      ysrc
+ |          Sets the source reference on plot.ly for  y .
+ |      
+ |      Returns
+ |      -------
+ |      Scatter
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |  
+ |  cliponaxis
+ |      Determines whether or not markers and text nodes are clipped
+ |      about the subplot axes. To show markers and text nodes above
+ |      axis lines and tick labels, make sure to set `xaxis.layer` and
+ |      `yaxis.layer` to *below traces*.
+ |      
+ |      The 'cliponaxis' property must be specified as a bool
+ |      (either True, or False)
+ |      
+ |      Returns
+ |      -------
+ |      bool
+ |  
+ |  connectgaps
+ |      Determines whether or not gaps (i.e. {nan} or missing values)
+ |      in the provided data arrays are connected.
+ |      
+ |      The 'connectgaps' property must be specified as a bool
+ |      (either True, or False)
+ |      
+ |      Returns
+ |      -------
+ |      bool
+ |  
+ |  customdata
+ |      Assigns extra data each datum. This may be useful when
+ |      listening to hover, click and selection events. Note that,
+ |      *scatter* traces also appends customdata items in the markers
+ |      DOM elements
+ |      
+ |      The 'customdata' property is an array that may be specified as a tuple,
+ |      list, numpy array, or pandas Series
+ |      
+ |      Returns
+ |      -------
+ |      numpy.ndarray
+ |  
+ |  customdatasrc
+ |      Sets the source reference on plot.ly for  customdata .
+ |      
+ |      The 'customdatasrc' property must be specified as a string or
+ |      as a plotly.grid_objs.Column object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  dx
+ |      Sets the x coordinate step. See `x0` for more info.
+ |      
+ |      The 'dx' property is a number and may be specified as:
+ |        - An int or float
+ |      
+ |      Returns
+ |      -------
+ |      int|float
+ |  
+ |  dy
+ |      Sets the y coordinate step. See `y0` for more info.
+ |      
+ |      The 'dy' property is a number and may be specified as:
+ |        - An int or float
+ |      
+ |      Returns
+ |      -------
+ |      int|float
+ |  
+ |  error_x
+ |      The 'error_x' property is an instance of ErrorX
+ |      that may be specified as:
+ |        - An instance of plotly.graph_objs.scatter.ErrorX
+ |        - A dict of string/value properties that will be passed
+ |          to the ErrorX constructor
+ |      
+ |          Supported dict properties:
+ |              
+ |              array
+ |                  Sets the data corresponding the length of each
+ |                  error bar. Values are plotted relative to the
+ |                  underlying data.
+ |              arrayminus
+ |                  Sets the data corresponding the length of each
+ |                  error bar in the bottom (left) direction for
+ |                  vertical (horizontal) bars Values are plotted
+ |                  relative to the underlying data.
+ |              arrayminussrc
+ |                  Sets the source reference on plot.ly for
+ |                  arrayminus .
+ |              arraysrc
+ |                  Sets the source reference on plot.ly for  array
+ |                  .
+ |              color
+ |                  Sets the stoke color of the error bars.
+ |              copy_ystyle
+ |      
+ |              symmetric
+ |                  Determines whether or not the error bars have
+ |                  the same length in both direction (top/bottom
+ |                  for vertical bars, left/right for horizontal
+ |                  bars.
+ |              thickness
+ |                  Sets the thickness (in px) of the error bars.
+ |              traceref
+ |      
+ |              tracerefminus
+ |      
+ |              type
+ |                  Determines the rule used to generate the error
+ |                  bars. If *constant`, the bar lengths are of a
+ |                  constant value. Set this constant in `value`.
+ |                  If *percent*, the bar lengths correspond to a
+ |                  percentage of underlying data. Set this
+ |                  percentage in `value`. If *sqrt*, the bar
+ |                  lengths correspond to the sqaure of the
+ |                  underlying data. If *array*, the bar lengths
+ |                  are set with data set `array`.
+ |              value
+ |                  Sets the value of either the percentage (if
+ |                  `type` is set to *percent*) or the constant (if
+ |                  `type` is set to *constant*) corresponding to
+ |                  the lengths of the error bars.
+ |              valueminus
+ |                  Sets the value of either the percentage (if
+ |                  `type` is set to *percent*) or the constant (if
+ |                  `type` is set to *constant*) corresponding to
+ |                  the lengths of the error bars in the bottom
+ |                  (left) direction for vertical (horizontal) bars
+ |              visible
+ |                  Determines whether or not this set of error
+ |                  bars is visible.
+ |              width
+ |                  Sets the width (in px) of the cross-bar at both
+ |                  ends of the error bars.
+ |      
+ |      Returns
+ |      -------
+ |      plotly.graph_objs.scatter.ErrorX
+ |  
+ |  error_y
+ |      The 'error_y' property is an instance of ErrorY
+ |      that may be specified as:
+ |        - An instance of plotly.graph_objs.scatter.ErrorY
+ |        - A dict of string/value properties that will be passed
+ |          to the ErrorY constructor
+ |      
+ |          Supported dict properties:
+ |              
+ |              array
+ |                  Sets the data corresponding the length of each
+ |                  error bar. Values are plotted relative to the
+ |                  underlying data.
+ |              arrayminus
+ |                  Sets the data corresponding the length of each
+ |                  error bar in the bottom (left) direction for
+ |                  vertical (horizontal) bars Values are plotted
+ |                  relative to the underlying data.
+ |              arrayminussrc
+ |                  Sets the source reference on plot.ly for
+ |                  arrayminus .
+ |              arraysrc
+ |                  Sets the source reference on plot.ly for  array
+ |                  .
+ |              color
+ |                  Sets the stoke color of the error bars.
+ |              symmetric
+ |                  Determines whether or not the error bars have
+ |                  the same length in both direction (top/bottom
+ |                  for vertical bars, left/right for horizontal
+ |                  bars.
+ |              thickness
+ |                  Sets the thickness (in px) of the error bars.
+ |              traceref
+ |      
+ |              tracerefminus
+ |      
+ |              type
+ |                  Determines the rule used to generate the error
+ |                  bars. If *constant`, the bar lengths are of a
+ |                  constant value. Set this constant in `value`.
+ |                  If *percent*, the bar lengths correspond to a
+ |                  percentage of underlying data. Set this
+ |                  percentage in `value`. If *sqrt*, the bar
+ |                  lengths correspond to the sqaure of the
+ |                  underlying data. If *array*, the bar lengths
+ |                  are set with data set `array`.
+ |              value
+ |                  Sets the value of either the percentage (if
+ |                  `type` is set to *percent*) or the constant (if
+ |                  `type` is set to *constant*) corresponding to
+ |                  the lengths of the error bars.
+ |              valueminus
+ |                  Sets the value of either the percentage (if
+ |                  `type` is set to *percent*) or the constant (if
+ |                  `type` is set to *constant*) corresponding to
+ |                  the lengths of the error bars in the bottom
+ |                  (left) direction for vertical (horizontal) bars
+ |              visible
+ |                  Determines whether or not this set of error
+ |                  bars is visible.
+ |              width
+ |                  Sets the width (in px) of the cross-bar at both
+ |                  ends of the error bars.
+ |      
+ |      Returns
+ |      -------
+ |      plotly.graph_objs.scatter.ErrorY
+ |  
+ |  fill
+ |      Sets the area to fill with a solid color. Use with `fillcolor`
+ |      if not *none*. *tozerox* and *tozeroy* fill to x=0 and y=0
+ |      respectively. *tonextx* and *tonexty* fill between the
+ |      endpoints of this trace and the endpoints of the trace before
+ |      it, connecting those endpoints with straight lines (to make a
+ |      stacked area graph); if there is no trace before it, they
+ |      behave like *tozerox* and *tozeroy*. *toself* connects the
+ |      endpoints of the trace (or each segment of the trace if it has
+ |      gaps) into a closed shape. *tonext* fills the space between two
+ |      traces if one completely encloses the other (eg consecutive
+ |      contour lines), and behaves like *toself* if there is no trace
+ |      before it. *tonext* should not be used if one trace does not
+ |      enclose the other.
+ |      
+ |      The 'fill' property is an enumeration that may be specified as:
+ |        - One of the following enumeration values:
+ |              ['none', 'tozeroy', 'tozerox', 'tonexty', 'tonextx',
+ |              'toself', 'tonext']
+ |      
+ |      Returns
+ |      -------
+ |      Any
+ |  
+ |  fillcolor
+ |      Sets the fill color. Defaults to a half-transparent variant of
+ |      the line color, marker color, or marker line color, whichever
+ |      is available.
+ |      
+ |      The 'fillcolor' property is a color and may be specified as:
+ |        - A hex string (e.g. '#ff0000')
+ |        - An rgb/rgba string (e.g. 'rgb(255,0,0)')
+ |        - An hsl/hsla string (e.g. 'hsl(0,100%,50%)')
+ |        - An hsv/hsva string (e.g. 'hsv(0,100%,100%)')
+ |        - A named CSS color:
+ |              aliceblue, antiquewhite, aqua, aquamarine, azure,
+ |              beige, bisque, black, blanchedalmond, blue,
+ |              blueviolet, brown, burlywood, cadetblue,
+ |              chartreuse, chocolate, coral, cornflowerblue,
+ |              cornsilk, crimson, cyan, darkblue, darkcyan,
+ |              darkgoldenrod, darkgray, darkgrey, darkgreen,
+ |              darkkhaki, darkmagenta, darkolivegreen, darkorange,
+ |              darkorchid, darkred, darksalmon, darkseagreen,
+ |              darkslateblue, darkslategray, darkslategrey,
+ |              darkturquoise, darkviolet, deeppink, deepskyblue,
+ |              dimgray, dimgrey, dodgerblue, firebrick,
+ |              floralwhite, forestgreen, fuchsia, gainsboro,
+ |              ghostwhite, gold, goldenrod, gray, grey, green,
+ |              greenyellow, honeydew, hotpink, indianred, indigo,
+ |              ivory, khaki, lavender, lavenderblush, lawngreen,
+ |              lemonchiffon, lightblue, lightcoral, lightcyan,
+ |              lightgoldenrodyellow, lightgray, lightgrey,
+ |              lightgreen, lightpink, lightsalmon, lightseagreen,
+ |              lightskyblue, lightslategray, lightslategrey,
+ |              lightsteelblue, lightyellow, lime, limegreen,
+ |              linen, magenta, maroon, mediumaquamarine,
+ |              mediumblue, mediumorchid, mediumpurple,
+ |              mediumseagreen, mediumslateblue, mediumspringgreen,
+ |              mediumturquoise, mediumvioletred, midnightblue,
+ |              mintcream, mistyrose, moccasin, navajowhite, navy,
+ |              oldlace, olive, olivedrab, orange, orangered,
+ |              orchid, palegoldenrod, palegreen, paleturquoise,
+ |              palevioletred, papayawhip, peachpuff, peru, pink,
+ |              plum, powderblue, purple, red, rosybrown,
+ |              royalblue, saddlebrown, salmon, sandybrown,
+ |              seagreen, seashell, sienna, silver, skyblue,
+ |              slateblue, slategray, slategrey, snow, springgreen,
+ |              steelblue, tan, teal, thistle, tomato, turquoise,
+ |              violet, wheat, white, whitesmoke, yellow,
+ |              yellowgreen
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  hoverinfo
+ |      Determines which trace information appear on hover. If `none`
+ |      or `skip` are set, no information is displayed upon hovering.
+ |      But, if `none` is set, click and hover events are still fired.
+ |      
+ |      The 'hoverinfo' property is a flaglist and may be specified
+ |      as a string containing:
+ |        - Any combination of ['x', 'y', 'z', 'text', 'name'] joined with '+' characters
+ |          (e.g. 'x+y')
+ |          OR exactly one of ['all', 'none', 'skip'] (e.g. 'skip')
+ |        - A list or array of the above
+ |      
+ |      Returns
+ |      -------
+ |      Any|numpy.ndarray
+ |  
+ |  hoverinfosrc
+ |      Sets the source reference on plot.ly for  hoverinfo .
+ |      
+ |      The 'hoverinfosrc' property must be specified as a string or
+ |      as a plotly.grid_objs.Column object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  hoverlabel
+ |      The 'hoverlabel' property is an instance of Hoverlabel
+ |      that may be specified as:
+ |        - An instance of plotly.graph_objs.scatter.Hoverlabel
+ |        - A dict of string/value properties that will be passed
+ |          to the Hoverlabel constructor
+ |      
+ |          Supported dict properties:
+ |              
+ |              bgcolor
+ |                  Sets the background color of the hover labels
+ |                  for this trace
+ |              bgcolorsrc
+ |                  Sets the source reference on plot.ly for
+ |                  bgcolor .
+ |              bordercolor
+ |                  Sets the border color of the hover labels for
+ |                  this trace.
+ |              bordercolorsrc
+ |                  Sets the source reference on plot.ly for
+ |                  bordercolor .
+ |              font
+ |                  Sets the font used in hover labels.
+ |              namelength
+ |                  Sets the length (in number of characters) of
+ |                  the trace name in the hover labels for this
+ |                  trace. -1 shows the whole name regardless of
+ |                  length. 0-3 shows the first 0-3 characters, and
+ |                  an integer >3 will show the whole name if it is
+ |                  less than that many characters, but if it is
+ |                  longer, will truncate to `namelength - 3`
+ |                  characters and add an ellipsis.
+ |              namelengthsrc
+ |                  Sets the source reference on plot.ly for
+ |                  namelength .
+ |      
+ |      Returns
+ |      -------
+ |      plotly.graph_objs.scatter.Hoverlabel
+ |  
+ |  hoveron
+ |      Do the hover effects highlight individual points (markers or
+ |      line points) or do they highlight filled regions? If the fill
+ |      is *toself* or *tonext* and there are no markers or text, then
+ |      the default is *fills*, otherwise it is *points*.
+ |      
+ |      The 'hoveron' property is a flaglist and may be specified
+ |      as a string containing:
+ |        - Any combination of ['points', 'fills'] joined with '+' characters
+ |          (e.g. 'points+fills')
+ |      
+ |      Returns
+ |      -------
+ |      Any
+ |  
+ |  hovertext
+ |      Sets hover text elements associated with each (x,y) pair. If a
+ |      single string, the same string appears over all the data
+ |      points. If an array of string, the items are mapped in order to
+ |      the this trace's (x,y) coordinates. To be seen, trace
+ |      `hoverinfo` must contain a *text* flag.
+ |      
+ |      The 'hovertext' property is a string and must be specified as:
+ |        - A string
+ |        - A number that will be converted to a string
+ |        - A tuple, list, or one-dimensional numpy array of the above
+ |      
+ |      Returns
+ |      -------
+ |      str|numpy.ndarray
+ |  
+ |  hovertextsrc
+ |      Sets the source reference on plot.ly for  hovertext .
+ |      
+ |      The 'hovertextsrc' property must be specified as a string or
+ |      as a plotly.grid_objs.Column object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  ids
+ |      Assigns id labels to each datum. These ids for object constancy
+ |      of data points during animation. Should be an array of strings,
+ |      not numbers or any other type.
+ |      
+ |      The 'ids' property is an array that may be specified as a tuple,
+ |      list, numpy array, or pandas Series
+ |      
+ |      Returns
+ |      -------
+ |      numpy.ndarray
+ |  
+ |  idssrc
+ |      Sets the source reference on plot.ly for  ids .
+ |      
+ |      The 'idssrc' property must be specified as a string or
+ |      as a plotly.grid_objs.Column object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  legendgroup
+ |      Sets the legend group for this trace. Traces part of the same
+ |      legend group hide/show at the same time when toggling legend
+ |      items.
+ |      
+ |      The 'legendgroup' property is a string and must be specified as:
+ |        - A string
+ |        - A number that will be converted to a string
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  line
+ |      The 'line' property is an instance of Line
+ |      that may be specified as:
+ |        - An instance of plotly.graph_objs.scatter.Line
+ |        - A dict of string/value properties that will be passed
+ |          to the Line constructor
+ |      
+ |          Supported dict properties:
+ |              
+ |              color
+ |                  Sets the line color.
+ |              dash
+ |                  Sets the dash style of lines. Set to a dash
+ |                  type string (*solid*, *dot*, *dash*,
+ |                  *longdash*, *dashdot*, or *longdashdot*) or a
+ |                  dash length list in px (eg *5px,10px,2px,2px*).
+ |              shape
+ |                  Determines the line shape. With *spline* the
+ |                  lines are drawn using spline interpolation. The
+ |                  other available values correspond to step-wise
+ |                  line shapes.
+ |              simplify
+ |                  Simplifies lines by removing nearly-collinear
+ |                  points. When transitioning lines, it may be
+ |                  desirable to disable this so that the number of
+ |                  points along the resulting SVG path is
+ |                  unaffected.
+ |              smoothing
+ |                  Has an effect only if `shape` is set to
+ |                  *spline* Sets the amount of smoothing. *0*
+ |                  corresponds to no smoothing (equivalent to a
+ |                  *linear* shape).
+ |              width
+ |                  Sets the line width (in px).
+ |      
+ |      Returns
+ |      -------
+ |      plotly.graph_objs.scatter.Line
+ |  
+ |  marker
+ |      The 'marker' property is an instance of Marker
+ |      that may be specified as:
+ |        - An instance of plotly.graph_objs.scatter.Marker
+ |        - A dict of string/value properties that will be passed
+ |          to the Marker constructor
+ |      
+ |          Supported dict properties:
+ |              
+ |              autocolorscale
+ |                  Has an effect only if `marker.color` is set to
+ |                  a numerical array. Determines whether the
+ |                  colorscale is a default palette
+ |                  (`autocolorscale: true`) or the palette
+ |                  determined by `marker.colorscale`. In case
+ |                  `colorscale` is unspecified or `autocolorscale`
+ |                  is true, the default  palette will be chosen
+ |                  according to whether numbers in the `color`
+ |                  array are all positive, all negative or mixed.
+ |              cauto
+ |                  Has an effect only if `marker.color` is set to
+ |                  a numerical array and `cmin`, `cmax` are set by
+ |                  the user. In this case, it controls whether the
+ |                  range of colors in `colorscale` is mapped to
+ |                  the range of values in the `color` array
+ |                  (`cauto: true`), or the `cmin`/`cmax` values
+ |                  (`cauto: false`). Defaults to `false` when
+ |                  `cmin`, `cmax` are set by the user.
+ |              cmax
+ |                  Has an effect only if `marker.color` is set to
+ |                  a numerical array. Sets the upper bound of the
+ |                  color domain. Value should be associated to the
+ |                  `marker.color` array index, and if set,
+ |                  `marker.cmin` must be set as well.
+ |              cmin
+ |                  Has an effect only if `marker.color` is set to
+ |                  a numerical array. Sets the lower bound of the
+ |                  color domain. Value should be associated to the
+ |                  `marker.color` array index, and if set,
+ |                  `marker.cmax` must be set as well.
+ |              color
+ |                  Sets the marker color. It accepts either a
+ |                  specific color or an array of numbers that are
+ |                  mapped to the colorscale relative to the max
+ |                  and min values of the array or relative to
+ |                  `cmin` and `cmax` if set.
+ |              colorbar
+ |                  plotly.graph_objs.scatter.marker.ColorBar
+ |                  instance or dict with compatible properties
+ |              colorscale
+ |                  Sets the colorscale and only has an effect if
+ |                  `marker.color` is set to a numerical array. The
+ |                  colorscale must be an array containing arrays
+ |                  mapping a normalized value to an rgb, rgba,
+ |                  hex, hsl, hsv, or named color string. At
+ |                  minimum, a mapping for the lowest (0) and
+ |                  highest (1) values are required. For example,
+ |                  `[[0, 'rgb(0,0,255)', [1, 'rgb(255,0,0)']]`. To
+ |                  control the bounds of the colorscale in color
+ |                  space, use `marker.cmin` and `marker.cmax`.
+ |                  Alternatively, `colorscale` may be a palette
+ |                  name string of the following list: Greys,
+ |                  YlGnBu, Greens, YlOrRd, Bluered, RdBu, Reds,
+ |                  Blues, Picnic, Rainbow, Portland, Jet, Hot,
+ |                  Blackbody, Earth, Electric, Viridis, Cividis
+ |              colorsrc
+ |                  Sets the source reference on plot.ly for  color
+ |                  .
+ |              gradient
+ |                  plotly.graph_objs.scatter.marker.Gradient
+ |                  instance or dict with compatible properties
+ |              line
+ |                  plotly.graph_objs.scatter.marker.Line instance
+ |                  or dict with compatible properties
+ |              maxdisplayed
+ |                  Sets a maximum number of points to be drawn on
+ |                  the graph. *0* corresponds to no limit.
+ |              opacity
+ |                  Sets the marker opacity.
+ |              opacitysrc
+ |                  Sets the source reference on plot.ly for
+ |                  opacity .
+ |              reversescale
+ |                  Has an effect only if `marker.color` is set to
+ |                  a numerical array. Reverses the color mapping
+ |                  if true (`cmin` will correspond to the last
+ |                  color in the array and `cmax` will correspond
+ |                  to the first color).
+ |              showscale
+ |                  Has an effect only if `marker.color` is set to
+ |                  a numerical array. Determines whether or not a
+ |                  colorbar is displayed.
+ |              size
+ |                  Sets the marker size (in px).
+ |              sizemin
+ |                  Has an effect only if `marker.size` is set to a
+ |                  numerical array. Sets the minimum size (in px)
+ |                  of the rendered marker points.
+ |              sizemode
+ |                  Has an effect only if `marker.size` is set to a
+ |                  numerical array. Sets the rule for which the
+ |                  data in `size` is converted to pixels.
+ |              sizeref
+ |                  Has an effect only if `marker.size` is set to a
+ |                  numerical array. Sets the scale factor used to
+ |                  determine the rendered size of marker points.
+ |                  Use with `sizemin` and `sizemode`.
+ |              sizesrc
+ |                  Sets the source reference on plot.ly for  size
+ |                  .
+ |              symbol
+ |                  Sets the marker symbol type. Adding 100 is
+ |                  equivalent to appending *-open* to a symbol
+ |                  name. Adding 200 is equivalent to appending
+ |                  *-dot* to a symbol name. Adding 300 is
+ |                  equivalent to appending *-open-dot* or *dot-
+ |                  open* to a symbol name.
+ |              symbolsrc
+ |                  Sets the source reference on plot.ly for
+ |                  symbol .
+ |      
+ |      Returns
+ |      -------
+ |      plotly.graph_objs.scatter.Marker
+ |  
+ |  mode
+ |      Determines the drawing mode for this scatter trace. If the
+ |      provided `mode` includes *text* then the `text` elements appear
+ |      at the coordinates. Otherwise, the `text` elements appear on
+ |      hover. If there are less than 20 points, then the default is
+ |      *lines+markers*. Otherwise, *lines*.
+ |      
+ |      The 'mode' property is a flaglist and may be specified
+ |      as a string containing:
+ |        - Any combination of ['lines', 'markers', 'text'] joined with '+' characters
+ |          (e.g. 'lines+markers')
+ |          OR exactly one of ['none'] (e.g. 'none')
+ |      
+ |      Returns
+ |      -------
+ |      Any
+ |  
+ |  name
+ |      Sets the trace name. The trace name appear as the legend item
+ |      and on hover.
+ |      
+ |      The 'name' property is a string and must be specified as:
+ |        - A string
+ |        - A number that will be converted to a string
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  opacity
+ |      Sets the opacity of the trace.
+ |      
+ |      The 'opacity' property is a number and may be specified as:
+ |        - An int or float in the interval [0, 1]
+ |      
+ |      Returns
+ |      -------
+ |      int|float
+ |  
+ |  r
+ |      For legacy polar chart only.Please switch to *scatterpolar*
+ |      trace type.Sets the radial coordinates.
+ |      
+ |      The 'r' property is an array that may be specified as a tuple,
+ |      list, numpy array, or pandas Series
+ |      
+ |      Returns
+ |      -------
+ |      numpy.ndarray
+ |  
+ |  rsrc
+ |      Sets the source reference on plot.ly for  r .
+ |      
+ |      The 'rsrc' property must be specified as a string or
+ |      as a plotly.grid_objs.Column object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  selected
+ |      The 'selected' property is an instance of Selected
+ |      that may be specified as:
+ |        - An instance of plotly.graph_objs.scatter.Selected
+ |        - A dict of string/value properties that will be passed
+ |          to the Selected constructor
+ |      
+ |          Supported dict properties:
+ |              
+ |              marker
+ |                  plotly.graph_objs.scatter.selected.Marker
+ |                  instance or dict with compatible properties
+ |              textfont
+ |                  plotly.graph_objs.scatter.selected.Textfont
+ |                  instance or dict with compatible properties
+ |      
+ |      Returns
+ |      -------
+ |      plotly.graph_objs.scatter.Selected
+ |  
+ |  selectedpoints
+ |      Array containing integer indices of selected points. Has an
+ |      effect only for traces that support selections. Note that an
+ |      empty array means an empty selection where the `unselected` are
+ |      turned on for all points, whereas, any other non-array values
+ |      means no selection all where the `selected` and `unselected`
+ |      styles have no effect.
+ |      
+ |      The 'selectedpoints' property accepts values of any type
+ |      
+ |      Returns
+ |      -------
+ |      Any
+ |  
+ |  showlegend
+ |      Determines whether or not an item corresponding to this trace
+ |      is shown in the legend.
+ |      
+ |      The 'showlegend' property must be specified as a bool
+ |      (either True, or False)
+ |      
+ |      Returns
+ |      -------
+ |      bool
+ |  
+ |  stream
+ |      The 'stream' property is an instance of Stream
+ |      that may be specified as:
+ |        - An instance of plotly.graph_objs.scatter.Stream
+ |        - A dict of string/value properties that will be passed
+ |          to the Stream constructor
+ |      
+ |          Supported dict properties:
+ |              
+ |              maxpoints
+ |                  Sets the maximum number of points to keep on
+ |                  the plots from an incoming stream. If
+ |                  `maxpoints` is set to *50*, only the newest 50
+ |                  points will be displayed on the plot.
+ |              token
+ |                  The stream id number links a data trace on a
+ |                  plot with a stream. See
+ |                  https://plot.ly/settings for more details.
+ |      
+ |      Returns
+ |      -------
+ |      plotly.graph_objs.scatter.Stream
+ |  
+ |  t
+ |      For legacy polar chart only.Please switch to *scatterpolar*
+ |      trace type.Sets the angular coordinates.
+ |      
+ |      The 't' property is an array that may be specified as a tuple,
+ |      list, numpy array, or pandas Series
+ |      
+ |      Returns
+ |      -------
+ |      numpy.ndarray
+ |  
+ |  text
+ |      Sets text elements associated with each (x,y) pair. If a single
+ |      string, the same string appears over all the data points. If an
+ |      array of string, the items are mapped in order to the this
+ |      trace's (x,y) coordinates. If trace `hoverinfo` contains a
+ |      *text* flag and *hovertext* is not set, these elements will be
+ |      seen in the hover labels.
+ |      
+ |      The 'text' property is a string and must be specified as:
+ |        - A string
+ |        - A number that will be converted to a string
+ |        - A tuple, list, or one-dimensional numpy array of the above
+ |      
+ |      Returns
+ |      -------
+ |      str|numpy.ndarray
+ |  
+ |  textfont
+ |      Sets the text font.
+ |      
+ |      The 'textfont' property is an instance of Textfont
+ |      that may be specified as:
+ |        - An instance of plotly.graph_objs.scatter.Textfont
+ |        - A dict of string/value properties that will be passed
+ |          to the Textfont constructor
+ |      
+ |          Supported dict properties:
+ |              
+ |              color
+ |      
+ |              colorsrc
+ |                  Sets the source reference on plot.ly for  color
+ |                  .
+ |              family
+ |                  HTML font family - the typeface that will be
+ |                  applied by the web browser. The web browser
+ |                  will only be able to apply a font if it is
+ |                  available on the system which it operates.
+ |                  Provide multiple font families, separated by
+ |                  commas, to indicate the preference in which to
+ |                  apply fonts if they aren't available on the
+ |                  system. The plotly service (at https://plot.ly
+ |                  or on-premise) generates images on a server,
+ |                  where only a select number of fonts are
+ |                  installed and supported. These include *Arial*,
+ |                  *Balto*, *Courier New*, *Droid Sans*,, *Droid
+ |                  Serif*, *Droid Sans Mono*, *Gravitas One*, *Old
+ |                  Standard TT*, *Open Sans*, *Overpass*, *PT Sans
+ |                  Narrow*, *Raleway*, *Times New Roman*.
+ |              familysrc
+ |                  Sets the source reference on plot.ly for
+ |                  family .
+ |              size
+ |      
+ |              sizesrc
+ |                  Sets the source reference on plot.ly for  size
+ |                  .
+ |      
+ |      Returns
+ |      -------
+ |      plotly.graph_objs.scatter.Textfont
+ |  
+ |  textposition
+ |      Sets the positions of the `text` elements with respects to the
+ |      (x,y) coordinates.
+ |      
+ |      The 'textposition' property is an enumeration that may be specified as:
+ |        - One of the following enumeration values:
+ |              ['top left', 'top center', 'top right', 'middle left',
+ |              'middle center', 'middle right', 'bottom left', 'bottom
+ |              center', 'bottom right']
+ |        - A tuple, list, or one-dimensional numpy array of the above
+ |      
+ |      Returns
+ |      -------
+ |      Any|numpy.ndarray
+ |  
+ |  textpositionsrc
+ |      Sets the source reference on plot.ly for  textposition .
+ |      
+ |      The 'textpositionsrc' property must be specified as a string or
+ |      as a plotly.grid_objs.Column object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  textsrc
+ |      Sets the source reference on plot.ly for  text .
+ |      
+ |      The 'textsrc' property must be specified as a string or
+ |      as a plotly.grid_objs.Column object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  tsrc
+ |      Sets the source reference on plot.ly for  t .
+ |      
+ |      The 'tsrc' property must be specified as a string or
+ |      as a plotly.grid_objs.Column object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  type
+ |  
+ |  uid
+ |      The 'uid' property is a string and must be specified as:
+ |        - A string
+ |        - A number that will be converted to a string
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  unselected
+ |      The 'unselected' property is an instance of Unselected
+ |      that may be specified as:
+ |        - An instance of plotly.graph_objs.scatter.Unselected
+ |        - A dict of string/value properties that will be passed
+ |          to the Unselected constructor
+ |      
+ |          Supported dict properties:
+ |              
+ |              marker
+ |                  plotly.graph_objs.scatter.unselected.Marker
+ |                  instance or dict with compatible properties
+ |              textfont
+ |                  plotly.graph_objs.scatter.unselected.Textfont
+ |                  instance or dict with compatible properties
+ |      
+ |      Returns
+ |      -------
+ |      plotly.graph_objs.scatter.Unselected
+ |  
+ |  visible
+ |      Determines whether or not this trace is visible. If
+ |      *legendonly*, the trace is not drawn, but can appear as a
+ |      legend item (provided that the legend itself is visible).
+ |      
+ |      The 'visible' property is an enumeration that may be specified as:
+ |        - One of the following enumeration values:
+ |              [True, False, 'legendonly']
+ |      
+ |      Returns
+ |      -------
+ |      Any
+ |  
+ |  x
+ |      Sets the x coordinates.
+ |      
+ |      The 'x' property is an array that may be specified as a tuple,
+ |      list, numpy array, or pandas Series
+ |      
+ |      Returns
+ |      -------
+ |      numpy.ndarray
+ |  
+ |  x0
+ |      Alternate to `x`. Builds a linear space of x coordinates. Use
+ |      with `dx` where `x0` is the starting coordinate and `dx` the
+ |      step.
+ |      
+ |      The 'x0' property accepts values of any type
+ |      
+ |      Returns
+ |      -------
+ |      Any
+ |  
+ |  xaxis
+ |      Sets a reference between this trace's x coordinates and a 2D
+ |      cartesian x axis. If *x* (the default value), the x coordinates
+ |      refer to `layout.xaxis`. If *x2*, the x coordinates refer to
+ |      `layout.xaxis2`, and so on.
+ |      
+ |      The 'xaxis' property is an identifier of a particular
+ |      subplot, of type 'x', that may be specified as the string 'x'
+ |      optionally followed by an integer >= 1
+ |      (e.g. 'x', 'x1', 'x2', 'x3', etc.)
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  xcalendar
+ |      Sets the calendar system to use with `x` date data.
+ |      
+ |      The 'xcalendar' property is an enumeration that may be specified as:
+ |        - One of the following enumeration values:
+ |              ['gregorian', 'chinese', 'coptic', 'discworld',
+ |              'ethiopian', 'hebrew', 'islamic', 'julian', 'mayan',
+ |              'nanakshahi', 'nepali', 'persian', 'jalali', 'taiwan',
+ |              'thai', 'ummalqura']
+ |      
+ |      Returns
+ |      -------
+ |      Any
+ |  
+ |  xsrc
+ |      Sets the source reference on plot.ly for  x .
+ |      
+ |      The 'xsrc' property must be specified as a string or
+ |      as a plotly.grid_objs.Column object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  y
+ |      Sets the y coordinates.
+ |      
+ |      The 'y' property is an array that may be specified as a tuple,
+ |      list, numpy array, or pandas Series
+ |      
+ |      Returns
+ |      -------
+ |      numpy.ndarray
+ |  
+ |  y0
+ |      Alternate to `y`. Builds a linear space of y coordinates. Use
+ |      with `dy` where `y0` is the starting coordinate and `dy` the
+ |      step.
+ |      
+ |      The 'y0' property accepts values of any type
+ |      
+ |      Returns
+ |      -------
+ |      Any
+ |  
+ |  yaxis
+ |      Sets a reference between this trace's y coordinates and a 2D
+ |      cartesian y axis. If *y* (the default value), the y coordinates
+ |      refer to `layout.yaxis`. If *y2*, the y coordinates refer to
+ |      `layout.yaxis2`, and so on.
+ |      
+ |      The 'yaxis' property is an identifier of a particular
+ |      subplot, of type 'y', that may be specified as the string 'y'
+ |      optionally followed by an integer >= 1
+ |      (e.g. 'y', 'y1', 'y2', 'y3', etc.)
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  ycalendar
+ |      Sets the calendar system to use with `y` date data.
+ |      
+ |      The 'ycalendar' property is an enumeration that may be specified as:
+ |        - One of the following enumeration values:
+ |              ['gregorian', 'chinese', 'coptic', 'discworld',
+ |              'ethiopian', 'hebrew', 'islamic', 'julian', 'mayan',
+ |              'nanakshahi', 'nepali', 'persian', 'jalali', 'taiwan',
+ |              'thai', 'ummalqura']
+ |      
+ |      Returns
+ |      -------
+ |      Any
+ |  
+ |  ysrc
+ |      Sets the source reference on plot.ly for  y .
+ |      
+ |      The 'ysrc' property must be specified as a string or
+ |      as a plotly.grid_objs.Column object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from plotly.basedatatypes.BaseTraceType:
+ |  
+ |  on_click(self, callback, append=False)
+ |      Register function to be called when the user clicks on one or more
+ |      points in this trace.
+ |      
+ |      Note: Callbacks will only be triggered when the trace belongs to a
+ |      instance of plotly.graph_objs.FigureWidget and it is displayed in an
+ |      ipywidget context. Callbacks will not be triggered on figures
+ |      that are displayed using plot/iplot.
+ |      
+ |      Parameters
+ |      ----------
+ |      callback
+ |          Callable function that accepts 3 arguments
+ |      
+ |          - this trace
+ |          - plotly.callbacks.Points object
+ |          - plotly.callbacks.InputDeviceState object
+ |      
+ |      append : bool
+ |          If False (the default), this callback replaces any previously
+ |          defined on_click callbacks for this trace. If True,
+ |          this callback is appended to the list of any previously defined
+ |          callbacks.
+ |      
+ |      Returns
+ |      -------
+ |      None
+ |      
+ |      Examples
+ |      --------
+ |      >>> from plotly.callbacks import Points, InputDeviceState
+ |      >>> points, state = Points(), InputDeviceState()
+ |      
+ |      >>> def click_fn(trace, points, state):
+ |      ...     inds = points.point_inds
+ |      ...     # Do something
+ |      
+ |      >>> trace.on_click(click_fn)
+ |      
+ |      Note: The creation of the `points` and `state` objects is optional,
+ |      it's simply a convenience to help the text editor perform completion
+ |      on the arguments inside `click_fn`
+ |  
+ |  on_hover(self, callback, append=False)
+ |      Register function to be called when the user hovers over one or more
+ |      points in this trace
+ |      
+ |      Note: Callbacks will only be triggered when the trace belongs to a
+ |      instance of plotly.graph_objs.FigureWidget and it is displayed in an
+ |      ipywidget context. Callbacks will not be triggered on figures
+ |      that are displayed using plot/iplot.
+ |      
+ |      Parameters
+ |      ----------
+ |      callback
+ |          Callable function that accepts 3 arguments
+ |      
+ |          - this trace
+ |          - plotly.callbacks.Points object
+ |          - plotly.callbacks.InputDeviceState object
+ |      
+ |      append : bool
+ |          If False (the default), this callback replaces any previously
+ |          defined on_hover callbacks for this trace. If True,
+ |          this callback is appended to the list of any previously defined
+ |          callbacks.
+ |      
+ |      Returns
+ |      -------
+ |      None
+ |      
+ |      Examples
+ |      --------
+ |      >>> from plotly.callbacks import Points, InputDeviceState
+ |      >>> points, state = Points(), InputDeviceState()
+ |      
+ |      >>> def hover_fn(trace, points, state):
+ |      ...     inds = points.point_inds
+ |      ...     # Do something
+ |      
+ |      >>> trace.on_hover(hover_fn)
+ |      
+ |      Note: The creation of the `points` and `state` objects is optional,
+ |      it's simply a convenience to help the text editor perform completion
+ |      on the arguments inside `hover_fn`
+ |  
+ |  on_selection(self, callback, append=False)
+ |      Register function to be called when the user selects one or more
+ |      points in this trace.
+ |      
+ |      Note: Callbacks will only be triggered when the trace belongs to a
+ |      instance of plotly.graph_objs.FigureWidget and it is displayed in an
+ |      ipywidget context. Callbacks will not be triggered on figures
+ |      that are displayed using plot/iplot.
+ |      
+ |      Parameters
+ |      ----------
+ |      callback
+ |          Callable function that accepts 4 arguments
+ |      
+ |          - this trace
+ |          - plotly.callbacks.Points object
+ |          - plotly.callbacks.BoxSelector or plotly.callbacks.LassoSelector
+ |      
+ |      append : bool
+ |          If False (the default), this callback replaces any previously
+ |          defined on_selection callbacks for this trace. If True,
+ |          this callback is appended to the list of any previously defined
+ |          callbacks.
+ |      
+ |      Returns
+ |      -------
+ |      None
+ |      
+ |      Examples
+ |      --------
+ |      >>> from plotly.callbacks import Points
+ |      >>> points = Points()
+ |      
+ |      >>> def selection_fn(trace, points, selector):
+ |      ...     inds = points.point_inds
+ |      ...     # Do something
+ |      
+ |      >>> trace.on_selection(selection_fn)
+ |      
+ |      Note: The creation of the `points` object is optional,
+ |      it's simply a convenience to help the text editor perform completion
+ |      on the `points` arguments inside `selection_fn`
+ |  
+ |  on_unhover(self, callback, append=False)
+ |      Register function to be called when the user unhovers away from one
+ |      or more points in this trace.
+ |      
+ |      Note: Callbacks will only be triggered when the trace belongs to a
+ |      instance of plotly.graph_objs.FigureWidget and it is displayed in an
+ |      ipywidget context. Callbacks will not be triggered on figures
+ |      that are displayed using plot/iplot.
+ |      
+ |      Parameters
+ |      ----------
+ |      callback
+ |          Callable function that accepts 3 arguments
+ |      
+ |          - this trace
+ |          - plotly.callbacks.Points object
+ |          - plotly.callbacks.InputDeviceState object
+ |      
+ |      append : bool
+ |          If False (the default), this callback replaces any previously
+ |          defined on_unhover callbacks for this trace. If True,
+ |          this callback is appended to the list of any previously defined
+ |          callbacks.
+ |      
+ |      Returns
+ |      -------
+ |      None
+ |      
+ |      Examples
+ |      --------
+ |      >>> from plotly.callbacks import Points, InputDeviceState
+ |      >>> points, state = Points(), InputDeviceState()
+ |      
+ |      >>> def unhover_fn(trace, points, state):
+ |      ...     inds = points.point_inds
+ |      ...     # Do something
+ |      
+ |      >>> trace.on_unhover(unhover_fn)
+ |      
+ |      Note: The creation of the `points` and `state` objects is optional,
+ |      it's simply a convenience to help the text editor perform completion
+ |      on the arguments inside `unhover_fn`
+ |  
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from plotly.basedatatypes.BasePlotlyType:
+ |  
+ |  __contains__(self, prop)
+ |      Determine whether object contains a property or nested property
+ |      
+ |      Parameters
+ |      ----------
+ |      prop : str|tuple
+ |          If prop is a simple string (e.g. 'foo'), then return true of the
+ |          object contains an element named 'foo'
+ |      
+ |          If prop is a property path string (e.g. 'foo[0].bar'),
+ |          then return true if the obejct contains the nested elements for
+ |          each entry in the path string (e.g. 'bar' in obj['foo'][0])
+ |      
+ |          If prop is a property path tuple (e.g. ('foo', 0, 'bar')),
+ |          then return true if the object contains the nested elements for
+ |          each entry in the path string (e.g. 'bar' in obj['foo'][0])
+ |      
+ |      Returns
+ |      -------
+ |      bool
+ |  
+ |  __eq__(self, other)
+ |      Test for equality
+ |      
+ |      To be considered equal, `other` must have the same type as this object
+ |      and their `to_plotly_json` representaitons must be identical.
+ |      
+ |      Parameters
+ |      ----------
+ |      other
+ |          The object to compare against
+ |      
+ |      Returns
+ |      -------
+ |      bool
+ |  
+ |  __getitem__(self, prop)
+ |      Get item or nested item from object
+ |      
+ |      Parameters
+ |      ----------
+ |      prop : str|tuple
+ |      
+ |          If prop is the name of a property of this object, then the
+ |          property is returned.
+ |      
+ |          If prop is a nested property path string (e.g. 'foo[1].bar'),
+ |          then a nested property is returned (e.g. obj['foo'][1]['bar'])
+ |      
+ |          If prop is a path tuple (e.g. ('foo', 1, 'bar')), then a nested
+ |          property is returned (e.g. obj['foo'][1]['bar']).
+ |      
+ |      Returns
+ |      -------
+ |      Any
+ |  
+ |  __iter__(self)
+ |      Return an iterator over the object's properties
+ |  
+ |  __repr__(self)
+ |      Customize object representation when displayed in the
+ |      terminal/notebook
+ |  
+ |  __setattr__(self, prop, value)
+ |      Parameters
+ |      ----------
+ |      prop : str
+ |          The name of a direct child of this object
+ |      value
+ |          New property value
+ |      Returns
+ |      -------
+ |      None
+ |  
+ |  __setitem__(self, prop, value)
+ |      Parameters
+ |      ----------
+ |      prop : str
+ |          The name of a direct child of this object
+ |      
+ |          Note: Setting nested properties using property path string or
+ |          property path tuples is not supported.
+ |      value
+ |          New property value
+ |      
+ |      Returns
+ |      -------
+ |      None
+ |  
+ |  on_change(self, callback, *args, **kwargs)
+ |      Register callback function to be called when certain properties or
+ |      subproperties of this object are modified.
+ |      
+ |      Callback will be invoked whenever ANY of these properties is
+ |      modified. Furthermore, the callback will only be invoked once even
+ |      if multiple properties are modified during the same restyle /
+ |      relayout / update operation.
+ |      
+ |      Parameters
+ |      ----------
+ |      callback : function
+ |          Function that accepts 1 + len(`args`) parameters. First parameter
+ |          is this object. Second through last parameters are the
+ |          property / subpropery values referenced by args.
+ |      args : list[str|tuple[int|str]]
+ |          List of property references where each reference may be one of:
+ |      
+ |            1) A property name string (e.g. 'foo') for direct properties
+ |            2) A property path string (e.g. 'foo[0].bar') for
+ |               subproperties
+ |            3) A property path tuple (e.g. ('foo', 0, 'bar')) for
+ |               subproperties
+ |      
+ |      append : bool
+ |          True if callback should be appended to previously registered
+ |          callback on the same properties, False if callback should replace
+ |          previously registered callbacks on the same properties. Defaults
+ |          to False.
+ |      
+ |      Examples
+ |      --------
+ |      
+ |      Register callback that prints out the range extents of the xaxis and
+ |      yaxis whenever either either of them changes.
+ |      
+ |      >>> fig.layout.on_change(
+ |      ...   lambda obj, xrange, yrange: print("%s-%s" % (xrange, yrange)),
+ |      ...   ('xaxis', 'range'), ('yaxis', 'range'))
+ |      
+ |      
+ |      Returns
+ |      -------
+ |      None
+ |  
+ |  to_plotly_json(self)
+ |      Return plotly JSON representation of object as a Python dict
+ |      
+ |      Returns
+ |      -------
+ |      dict
+ |  
+ |  update(self, dict1=None, **kwargs)
+ |      Update the properties of an object with a dict and/or with
+ |      keyword arguments.
+ |      
+ |      This recursively updates the structure of the original
+ |      object with the values in the input dict / keyword arguments.
+ |      
+ |      Parameters
+ |      ----------
+ |      dict1 : dict
+ |          Dictionary of properties to be updated
+ |      kwargs :
+ |          Keyword/value pair of properties to be updated
+ |      
+ |      Returns
+ |      -------
+ |      BasePlotlyType
+ |          Updated plotly object
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data descriptors inherited from plotly.basedatatypes.BasePlotlyType:
+ |  
+ |  __dict__
+ |      dictionary for instance variables (if defined)
+ |  
+ |  __weakref__
+ |      list of weak references to the object (if defined)
+ |  
+ |  figure
+ |      Reference to the top-level Figure or FigureWidget that this object
+ |      belongs to. None if the object does not belong to a Figure
+ |      
+ |      Returns
+ |      -------
+ |      Union[BaseFigure, None]
+ |  
+ |  parent
+ |      Return the object's parent, or None if the object has no parent
+ |      Returns
+ |      -------
+ |      BasePlotlyType|BaseFigure
+ |  
+ |  plotly_name
+ |      The plotly name of the object
+ |      
+ |      Returns
+ |      -------
+ |      str
+ |  
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from plotly.basedatatypes.BasePlotlyType:
+ |  
+ |  __hash__ = None
+
