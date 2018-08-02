@@ -109,7 +109,8 @@ def plotlyslider(date,Y1,Y2,name1='1',name2='2',\
     )
 
     fig = dict(data=data, layout=layout)
-    url=py.plot(fig,auto_open=False,fileopt='overwrite')
+    #fileopt='overwrite'
+    url=py.plot(fig,auto_open=False,filename='new',fileopt='new')
     return url
 
 
