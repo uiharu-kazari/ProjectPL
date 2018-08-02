@@ -25,10 +25,12 @@ Coding Steps:
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import dionysus as d
 import warnings
 from termcolor import colored
 from functools import reduce
 import time
+
 from scipy.spatial import distance
 
 
@@ -81,6 +83,7 @@ S=pd.read_csv('SP500.csv')
 SL=[D,N,R,S]
 
 SL=list(map(DateAdjC,SL))
+
 
 SL[0].columns=['Date','DJIA']
 SL[1].columns=['Date','NASDAQ']

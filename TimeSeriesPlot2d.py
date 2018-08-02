@@ -32,7 +32,7 @@ def plotlyslider(date,Y1,Y2,name1='1',name2='2',\
             y=Y1,
             name = name1,
             yaxis='y',
-            line = dict(color = '#17BECF'),
+            line = dict(color = '#17BECF',width=3),
             opacity = 0.8)
 
     trace_2 = go.Scatter(
@@ -70,6 +70,14 @@ def plotlyslider(date,Y1,Y2,name1='1',name2='2',\
                              label='3y',
                              step='year',
                              stepmode='backward'),
+                        dict(count=5,
+                             label='5y',
+                             step='year',
+                             stepmode='backward'),
+                        dict(count=10,
+                             label='10y',
+                             step='year',
+                             stepmode='backward'),
                         dict(step='all')
                         ])
                 ),
@@ -79,15 +87,21 @@ def plotlyslider(date,Y1,Y2,name1='1',name2='2',\
                 type='date'
             ),
         yaxis=dict(
-            title=name1
+            title=name1,
+            titlefont=dict(
+                    color= '#17BECF'
+            ),
+            tickfont=dict(
+                    color='#17BECF'
+        )
         ),
         yaxis2=dict(
             title=name2,
             titlefont=dict(
-                color='rgb(148, 103, 189)'
+                color= '#7F7F7F'
             ),
             tickfont=dict(
-                color='rgb(148, 103, 189)'
+                color='#7F7F7F'
             ),
             overlaying='y',
             side='right'
@@ -101,8 +115,6 @@ def plotlyslider(date,Y1,Y2,name1='1',name2='2',\
 
 
 #demo
-#df = web.DataReader('AAPL', 'iex',
-                    datetime(2014, 10, 1),
-                    datetime(2018, 4, 1))
+#df = web.DataReader('AAPL', 'iex',datetime(2014, 10, 1),datetime(2018, 4, 1))
 
 #plotlyslider(df.index,df['close'],df['volume'])

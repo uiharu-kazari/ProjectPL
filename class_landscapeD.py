@@ -16,7 +16,7 @@ class PrecisionWarning(Warning):
     pass
 
 
-testPD=d._dionysus.Diagram([(1,2),(3,4)])
+#testPD=d._dionysus.Diagram([(1,2),(3,4)])
 
 #Initializer for the class when using dionysus package
 '''
@@ -103,11 +103,14 @@ class PersistenceLandscape():
         Calculate the integration over the nonzero zone of 
         muk to the p-th power
         """
-        birth=sorted(self.bdpairs[:,0])
-        death=sorted(self.bdpairs[:,1],reverse=True)
-        #Notice that muk is positive semidefinite
-        result=integrate.quad(lambda x:self.muk(k)(x)**p,birth[k-1],death[k-1])
-        return np.array(result)
+        if len(self.bdpairs)==0:
+            result=0
+        else:
+            birth=sorted(self.bdpairs[:,0])
+            death=sorted(self.bdpairs[:,1],reverse=True)
+            #Notice that muk is positive semidefinite
+            result=integrate.quad(lambda x:self.muk(k)(x)**p,birth[k-1],death[k-1])
+        return result
     
         
     def __OneNormBarCode__(self):
@@ -134,6 +137,8 @@ class PersistenceLandscape():
             return self.__infNormBarCode__()
         else:        
             l=len(self.bdpairs)
+            if l==0:
+                return 0
             IntRes=np.array([self.mukInt(p,k) for k in range(1,l+1)])
             Values=IntRes[:,0]
             Errors=IntRes[:,1]
