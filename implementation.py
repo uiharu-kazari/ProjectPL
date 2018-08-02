@@ -18,7 +18,7 @@ TPC=dfInfiniteMerge(SL,'Date')
 #             name1='SP500',name2='1-norm',\
 #                 TITLE='Time Series with Rangeslider')
 
-def calcandplot(window=50,p=1,dim=1):
+def calcandplot(window=50,p=1,dim=1,TITLE='Time Series with Rangeslider'):
     """
     User function for finally plotting the result
     window specifies the window size
@@ -29,7 +29,7 @@ def calcandplot(window=50,p=1,dim=1):
     pc=PointCloudGeneratorSLW(TPC,window,p,dim)
     nametag=str(p)+'-norm'
     url=plotlyslider(pc['Date'],S[window-1:]['Adj Close'],pc[nametag],\
-             name1='SP500',name2=nametag)
+             name1='SP500',name2=nametag,TITLE=TITLE)
     return url
     
     

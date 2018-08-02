@@ -43,6 +43,7 @@ class PersistenceLandscape():
     """
     def __init__(self,nparray):
         self.bdpairs=nparray
+        self.l=len(self.bdpairs)
     #If a function is defined without using numpy, it is necessary to make it
     #listable via wrapper and decorators, for example.
     
@@ -65,10 +66,9 @@ class PersistenceLandscape():
         """
         Return ALL plf fucntions of this instance
         """
-        l=len(self.bdpairs)
         f=lambda i:self.plf(self.bdpairs[i])
         #dualmap is defined in h.py
-        return lambda x:dualmap(list(map(f,range(l))),x)
+        return lambda x:dualmap(list(map(f,range(self.l))),x)
 
     ###
     #Can use enumerate to simplify the codes in the function below
@@ -77,17 +77,16 @@ class PersistenceLandscape():
         """
         Return the k-th maximum, vector supported.
         """
-        l=len(self.bdpairs)
         f=lambda i:self.plf(self.bdpairs[i])
         def veczeros(x):
             if isinstance(x,int) or isinstance(x,float):
                 return 0
             else:
                 return np.array([0]*len(x))
-        if k > l:
+        if k > self.l:
             return lambda x:veczeros(x)
         def EvaluateAtOnePoint(x):
-            values=dualmap(list(map(f,range(l))),x)
+            values=dualmap(list(map(f,range(self.l))),x)
             return sorted(values,reverse=True)[k-1]
         def EvaluateAtPoints(array):
             return np.array(list(map(EvaluateAtOnePoint,array)))
@@ -103,7 +102,7 @@ class PersistenceLandscape():
         Calculate the integration over the nonzero zone of 
         muk to the p-th power
         """
-        if len(self.bdpairs)==0:
+        if self.l==0:
             result=0
         else:
             birth=sorted(self.bdpairs[:,0])
@@ -118,14 +117,20 @@ class PersistenceLandscape():
         Direclty calculate the 1-norm of a persistent diagram
         based on analytic formulas.
         """
-        return np.square(self.bdpairs[:,1]-self.bdpairs[:,0]).sum()/4
+        if self.l==0:
+            return 0
+        else:
+            return np.square(self.bdpairs[:,1]-self.bdpairs[:,0]).sum()/4
 
     def __infNormBarCode__(self):
         """
         Direclty calculate the infinite norm of a persistent diagram
         based on analytic formulas.
         """
-        return (self.bdpairs[:,1]-self.bdpairs[:,0]).max()
+        if self.l==0:
+            return 0
+        else:
+            return (self.bdpairs[:,1]-self.bdpairs[:,0]).max()
 
     def norm(self,p):
         """
@@ -136,10 +141,9 @@ class PersistenceLandscape():
         elif p=='inf':
             return self.__infNormBarCode__()
         else:        
-            l=len(self.bdpairs)
-            if l==0:
+            if self.l==0:
                 return 0
-            IntRes=np.array([self.mukInt(p,k) for k in range(1,l+1)])
+            IntRes=np.array([self.mukInt(p,k) for k in range(1,self.l+1)])
             Values=IntRes[:,0]
             Errors=IntRes[:,1]
             if (Errors>const.IntEpsilon).any():

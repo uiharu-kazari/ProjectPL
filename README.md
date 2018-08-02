@@ -1,9 +1,8 @@
 # プロジェクトパーシステンスランドスケープ
 
 ## This is project persistence landscape.
-<!---
-## このプロジェクトはプロジェクトランドスケープです。
---->
+<!---Comment--->
+
 このプロジェクトの目標は論文「Topological data analysis of financial time series: Landscapes of crashes」の結果を再現することです。
 
 ## Process:
