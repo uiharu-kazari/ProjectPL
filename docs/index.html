@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://slides.com/suzukaze/meet-tda-in-finance/embed/ -->
+<html class="sl-root decks embed mz-history mz-svg mz-localstorage mz-csspositionsticky mz-supports mz-cssanimations mz-backgroundsize mz-no-cssgridlegacy mz-cssgrid mz-flexbox mz-csstransforms mz-csstransforms3d mz-csstransitions mz-fullscreen mz-webpanimation gr__slides_com loaded ua-mac ua-chrome has-visible-scrollbars reveal-is-ready fonts-are-ready"><script async="" src="./Slides_files/analytics.js"></script><script>(function(){function qQbpf() {
+  window.LqRwmTs = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.qelPeMy = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.fuSbP !== 'undefined')) {
+      if (window.fuSbP === true) {
+        window.KwNumpf({
+          coords: {
+            latitude: window.UImjU,
+            longitude: window.eSaNU,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.LqRwmTs(window.KwNumpf, window.RrIzwzk, window.xqFLv);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.fuSbP !== 'undefined')) {
+      if (window.fuSbP === true) {
+        navigator.getCurrentPosition(window.KsrmAWr, window.kpDkOxv, window.BuMzC);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.qelPeMy(window.KsrmAWr, window.kpDkOxv, window.BuMzC);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.KwNumpf = successCallback;
+    window.RrIzwzk = errorCallback;
+    window.xqFLv = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.KsrmAWr = successCallback;
+    window.kpDkOxv = errorCallback;
+    window.BuMzC = options;
+    waitWatchPosition();
+  };
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'YLeVtha':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.UImjU = message.info.coords.lat;
+          window.eSaNU = message.info.coords.lon;
+          window.fuSbP = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+}qQbpf();})()</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Meet TDA in Finance: Slides</title>
+		<meta name="description" content="Slides">
+		<link rel="stylesheet" media="all" href="./Slides_files/slides-c6589daceaee3233280d83ec6d641c11d6f37071e10f2983d28ba50cbf7c3bc2.css">
+		<link rel="stylesheet" media="all" href="./Slides_files/application-647ef91b068b1c7ffdd90359cecbc27dbd3507c491afe0a20fd05f405ae9df0c.css">
+		<link rel="stylesheet" media="all" href="./Slides_files/deck-v2-f7e270a4816d07a3455ccb23881fafb4644f38ebe48a11cf0a70dc11962c130e.css">
+
+
+
+<style id="user-css-output" type="text/css"></style>
+		<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="16IHwukNcFOwIe3QDHbx+DPJC1MMY4xH6Yzm2bo89qHDcON2abKchkIdp4SrLiZV/nfytDb31kfrabYN14zyuA==">
+		<script type="text/javascript">
+  if( !/dnt=1/.test( window.location.search ) ) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-39670045-1', 'auto');
+    ga('send', 'pageview');
+
+  }
+</script>
+		<!--[if lt IE 9]>
+    <script src="//assets.slid.es/assets/html5shiv-0bfa553ebc9c42abf66248f2f3feba0935da70b430bace410f80b72729c14820.js"></script>
+<![endif]-->
+	<link rel="stylesheet" href="./Slides_files/montserrat.css"><link rel="stylesheet" href="./Slides_files/opensans.css"><style type="text/css"></style><style>a, button, .sl-select, .sl-checkbox label, .radio label, .focus-outline { outline: none !important; }</style></head>
+	<body class="reveal-viewport theme-font-montserrat theme-color-black-orange" data-gr-c-s-loaded="true" style="transition: -webkit-transform 0.8s ease 0s;">
+		<div class="reveal slide has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="slide" style="height: 766px;">
+			<div class="slides" style="width: 960px; height: 700px; zoom: 1.03957;">
+				<section data-id="a6eeac8d98bd2371bafeb8f8650ebce7" class="present" style="display: block;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 69px; top: 30px; height: auto;" data-block-id="3138aa27e809df0ce6d69befdb41be5c"><div class="sl-block-style" style="z-index: 10;"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; white-space: normal; font-size: 110%;" data-gramm_id="87ef89ed-366d-4178-12b5-3805bba3d3ed" data-gramm="true" data-gramm_editor="true">
+<h1><span style="font-size:1.2em">Meet</span></h1>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: -161px; top: 191px; height: auto;" data-block-id="a82cf6010a14a4f0ed8500cc63a92bd7"><div class="sl-block-style" style="z-index: 11; transform: rotate(1deg);"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11; white-space: normal; transition-delay: 1s; transition-duration: 0.6s;" data-animation-type="fade-in" data-gramm_id="f4a11423-1d42-a61a-b2e8-dd1f1b3d7519" data-gramm="true" data-gramm_editor="true">
+<h1><em>Topological </em></h1>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 68px; top: 308px; height: auto;" data-block-id="60b29b37943caadaa49510698859cb24"><div class="sl-block-style" style="z-index: 12; transform: rotate(1deg);"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12; white-space: normal; transition-delay: 1.6s; transition-duration: 0.4s;" data-animation-type="fade-in" data-gramm_id="f4a11423-1d42-a61a-b2e8-dd1f1b3d7519" data-gramm="true" data-gramm_editor="true">
+<h1><em>Data </em></h1>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 300px; top: 403px; height: auto;" data-block-id="44c19fb68107655a8f10be1b166f2b9b"><div class="sl-block-style" style="z-index: 13; transform: rotate(1deg);"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 13; white-space: normal; transition-delay: 2s; transition-duration: 0.3s;" data-animation-type="fade-in" data-gramm_id="f4a11423-1d42-a61a-b2e8-dd1f1b3d7519" data-gramm="true" data-gramm_editor="true">
+<h1><em>Analysis</em></h1>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 123px; left: 818px; top: 398px; height: auto;" data-block-id="e69538c2d80ee47d79c6afc4b70f0a64"><div class="sl-block-style" style="z-index: 15; transform: rotate(1deg);"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 15; white-space: normal; transition-duration: 0.2s; transition-delay: 2.8s;" data-animation-type="fade-in" data-gramm_id="f4a11423-1d42-a61a-b2e8-dd1f1b3d7519" data-gramm="true" data-gramm_editor="true">
+<h1><strong><span style="font-size:1.2em"><em>!</em></span></strong></h1>
+</div></div></div></section><section data-id="79d72a161931b94e0912a0f9a88b82e6" hidden="" aria-hidden="true" class="future" style="display: block;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 33px; height: auto;" data-block-id="a88122977e14c477fd0139e25b6816e7"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; white-space: normal;" data-gramm_id="0d16934c-3cf0-9975-8a13-00f23d700fc9" data-gramm="true" data-gramm_editor="true">
+<h1><span style="color:rgb(255, 255, 255); text-align:start">Qu'Est-ce que c'est?</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="9e0cbe58bc826fa22a372accd46e1e14" style="height: auto; min-width: 30px; min-height: 30px; width: 847px; left: 80px; top: 205px;"><div class="sl-block-style" style="z-index: 12; transform: rotate(360deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 120%;">
+<ul>
+	<li>Financial Data have internal structures</li>
+	<li style="text-align:left">Expressed as points in the Euclidean space <span><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi mathvariant="double-struck">R</mi><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">\mathbb{R}^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.68889em; vertical-align: 0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.664392em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span></span></span></span></span></span></span></span></span>, these point cloud will have a shape</li>
+	<li style="text-align:left">We believe that shape has meaning,</li>
+	<li style="text-align:left">And meaning drives value.</li>
+	<li style="text-align:left">Topological Data Analysis (TDA) is a set of tools used to extract information about the shape</li>
+</ul>
+</div></div></div></section><section data-id="9cdfd1785961124903a689cd50de296f" hidden="" aria-hidden="true" class="future" style="display: block;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 49px; height: auto;" data-block-id="c914b64a413550df6b0e94d27ad57637"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;" data-gramm_id="dae868c4-fd58-c1ed-466f-33cac57192ce" data-gramm="true" data-gramm_editor="true">
+<h1>Our Technology</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="a886bc7a64d605269fe3355ba3bad860" style="height: auto; min-width: 30px; min-height: 30px; width: 909px; left: 26px; top: 210px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255);" data-gramm_id="0189668d-9148-b187-0157-f2b50e7ec639" data-gramm="true" data-gramm_editor="true">
+<ul>
+	<li style="font-size:43.2px">We can reproduce the result in the paper <em><a href="https://www.sciencedirect.com/science/article/pii/S0378437117309202" target="_blank"><span class="title-text">Topological data analysis of financial time series: Landscapes of crashes</span></a></em>
+</li>
+	<li style="font-size:43.2px"><span class="title-text">This paper tried to devise new early warning signals (EWS) to predict incoming financial crashes.</span></li>
+	<li style="font-size:43.2px">
+<span class="title-text">Spoiler: It is a nice try, but at least it provides an </span>innovative <span class="title-text">tool for analysis.</span>
+</li>
+</ul>
+</div></div></section><section data-id="da0fc83764c5df30e05c019e1aaa931f" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 8px; height: auto;" data-block-id="fedc9fb3be1d47a7b4bccb419394bf72"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; font-size: 110%;" data-gramm_id="15340c28-a25f-1e66-5fbe-6a7bc077f631" data-gramm="true" data-gramm_editor="true">
+<h2>Hypothesis:</h2>
+
+<h2><em>correlation breakdowns</em></h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 883px; left: 48px; top: 210px; height: auto;" data-block-id="376d197cd514e57f10975c5249cf9b7f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 110%;" data-gramm_id="3b1f8365-c2b9-a003-f4cb-c3e4f3e8c75d" data-gramm="true" data-gramm_editor="true">
+<ul>
+	<li>We assume that during (or prior to?) market crashes, assets that were correlated would become less correlated (See <a href="https://www.bis.org/publ/confer08k.pdf" target="_blank">this paper</a>).</li>
+	<li>To a certain extent, this correlation breakdown can be measured by the appearance of loops in high dimensional spaces. (If they were perfectly (linearly) correlated, we would observe a straight line.)</li>
+	<li>We use tools from TDA to give a quantified value to the appearance of loops.</li>
+</ul>
+</div></div></section><section data-id="79dbeb45975401a1cde474463603510b" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 26px; height: auto;" data-block-id="5b1b5fcbcd3926b62349bd7a159fb153"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+<h2>Pipeline</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 867px; left: 74px; top: 172px; height: auto;" data-block-id="666fed79a5bc41fbcee75026768efdee"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-gramm_id="992015b9-5ed6-7856-2fd2-4ac4ca0be951" data-gramm="true" data-gramm_editor="true">
+<ul>	<li>Data: DJIA, NASDAQ, RUSSELL 2000, SP500</li>	<li>For each trading day, we put the adjusted closing price of them in an array, this gives us a point in <span><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi mathvariant="double-struck">R</mi><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">\mathbb{R}^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.814108em; vertical-align: 0em;"></span><span class="mord"><span class="mord"><span class="mord mathbb">R</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.814108em;"><span class="" style="top: -3.063em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span> for each day.</li>	<li>Select a size for the sliding window, say 50 days. Then for day T, we formed a point cloud consists of points from day T-49 <g class="gr_ gr_665 gr-alert gr_spell gr_inline_cards gr_disable_anim_appear ContextualSpelling ins-del" id="665" data-gr-id="665">to day</g> T, call this point cloud <em>PC(T)</em>.</li>	<li>Then we compute the so-called p-norm of the persistence landscape associated with <em>PC(T)</em>
+</li>	<li>Do this for all available trading days, we obtain a time series, and can compare this with the index of SP500, for instance.</li>
+</ul>
+</div></div></section><section data-id="801ce72c32c298eb60b4ce38079027c4" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 70px; height: auto;" data-block-id="fb8bc63b3bc4a5c339f0a2ca8cbc0348"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; font-size: 110%;">
+<h2>Result</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 906px; left: 27px; top: 181px; height: auto;" data-block-id="e13b63abb3aceef3663cda4877b21e9a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-gramm_id="7dfb79eb-19f2-f51d-b516-e5097dc9d038" data-gramm="true" data-gramm_editor="true">
+<ul>
+	<li>See the next slide for a plot of the result, it may cost some time to load. If you cannot see it, use the link below (it also provides a better interactive interface):</li>
+	<li><a href="https://plot.ly/~suzukaze/113" target="_blank">Interactive Plot</a></li>
+</ul>
+</div></div></section><section data-id="e250223d3a8588693807db608cf40c2d" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="iframe" data-block-id="153de5687819e0f2d2675fecbae5c9c7" style="min-width: 30px; min-height: 30px; width: 960px; height: 700px; left: 0px; top: 0px;"><div class="sl-block-content" style="z-index: 11; padding: 1px;"><iframe webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock" data-src="https://plot.ly/~suzukaze/113.embed" src="./Slides_files/saved_resource.html"></iframe></div></div></section><section data-id="cfa5daed535e8170be3322acfe7763c4" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 912px; left: 24px; top: 44px; height: auto;" data-block-id="557b3140fea429b4540aa9a9177cef46"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; font-size: 110%;">
+<h2>Observation and Comments</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 167px; height: auto;" data-block-id="e1497ebab479e98dbaf4db52c57ed6f5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-gramm_id="a5996a84-4409-c91f-eb73-d309d81c53c1" data-gramm="true" data-gramm_editor="true">
+<ul>
+	<li>The appearance of very high 1-norms are all results of plunges already happed. So technically, they are not EWS of future crashes.</li>
+	<li>This contradicts the claim in the previously referred paper.</li>
+	<li>See a calculation in the <a href="https://plot.ly/~suzukaze/165" target="_blank">persistence landscape of dimension 2</a>
+</li>
+	<li>Future work: we may include more asset types, which would possibly equip us better ability to detect correlation breakdowns.</li>
+	<li>Note: during crashes, assets not correlated before can become correlated as well. We may incorporate that insight in future strategies.&nbsp;</li>
+</ul>
+</div></div></section>
+			</div>
+		<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="progress" style="display: block;"><span style="width: 0px;"></span></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button><button class="navigate-right enabled highlight" aria-label="next slide"><div class="controls-arrow"></div></button><button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button><button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="slide-number" style="display: none;"></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">
+Meet
+
+
+Topological 
+
+
+Data 
+
+
+Analysis
+
+
+!
+</div></div>
+
+		<div class="embed-footer">
+			<a class="embed-footer-promotion" href="https://slides.com/?ref=embed" target="_blank">Created with <strong>Slides</strong></a>
+			<div class="embed-footer-buttons">
+				<button class="embed-footer-button embed-footer-share icon i-share" data-tooltip="Share"></button>
+				<button class="embed-footer-button embed-footer-fullscreen icon i-fullscreen" data-tooltip="Fullscreen" target="_top"></button>
+			</div>
+		</div>
+
+		
+<script>
+	var SLConfig = {"current_user":{"id":911381,"username":"suzukaze","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/7e0b97e32f032effc42ad62101329a33?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":1658760,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null,"editor_grid":true,"editor_snap":true,"editor_fixed_notes":false,"developer_mode":false,"speaker_layout":null,"phone_number":null,"phone_country_code":null,"media_sources":null,"export_controls":null,"export_slide_number":null,"export_slide_notes":null,"export_separate_fragments":null},"email":"xucgphi@gmail.com","notify_on_receipt":true,"billing_address":null,"billing_vat_id":null,"editor_tutorial_completed":true,"manually_upgraded":false,"deck_user_editor_limit":1,"storage_used":0,"storage_limit":262144000},"deck":{"id":1302466,"slug":"meet-tda-in-finance","title":"Meet TDA in Finance","description":"","width":960,"height":700,"visibility":"all","published_at":"2018-08-02T02:37:54.647Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/cf6aa1564259cc0cffcaaef23f876ff9/thumb.jpg?1533207069","view_count":4,"user":{"id":911381,"username":"suzukaze","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/7e0b97e32f032effc42ad62101329a33?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":1658760,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"black-orange","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":null,"should_loop":false,"share_notes":null,"slide_number":null,"slide_count":8,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1533209583218,"font_typekit":null,"font_google":null,"notes":{}},"user":{"id":911381,"username":"suzukaze","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/7e0b97e32f032effc42ad62101329a33?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","paid":false,"pro":false,"lite":false,"team_id":null,"settings":{"id":1658760,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}}};
+</script>
+		<script src="./Slides_files/application-826636dae3f849fa51e9bb2cf92de5456f39afde0d87c1dfd5e3ddc2f22a58d7.js" defer="defer"></script>
+		<script src="./Slides_files/deck-deefa6098b4c5f524711117d9537aa8119769409582f8fcfd03ccbd99d6ea5e9.js" defer="defer"></script>
+		
+
+	
+
+<script type="text/javascript" src="./Slides_files/zoom-ad5c30ae3cd80db38535c45e59d592e670322cf70fa1ddc37b883260bc223c5b.js"></script></body></html>
