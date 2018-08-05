@@ -6,7 +6,7 @@ Created on Sat Jul 21 23:15:48 2018
 @author: cx513
 """
 
-import dionysus as d
+#import dionysus as d
 from ripser import ripser, plot_dgms
 import const
 import scipy.integrate as integrate

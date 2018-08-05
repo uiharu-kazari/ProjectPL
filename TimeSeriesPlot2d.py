@@ -8,14 +8,17 @@ Created on Wed Aug  1 16:44:49 2018
 
 
 import plotly
+###Important
+#Please change the following line to your
+#own api from plotly if you want to edit the output plots.
+###
 plotly.tools.set_credentials_file(username='suzukaze',\
                                   api_key='tuJEp6bN9sRCxYMI9pVn')
-
 import plotly.plotly as py
 import plotly.graph_objs as go
 import pandas as pd
 from datetime import datetime
-import pandas_datareader.data as web
+#import pandas_datareader.data as web
 #import quandl
 #quandl.ApiConfig.api_key = "bi9w2Bj4FGiMCpUGA153"
 #quandl.ApiConfig.api_version = '2015-04-09'
@@ -110,7 +113,7 @@ def plotlyslider(date,Y1,Y2,name1='1',name2='2',\
 
     fig = dict(data=data, layout=layout)
     #fileopt='overwrite'
-    url=py.plot(fig,auto_open=False,filename='new',fileopt='new')
+    url=py.plot(fig,auto_open=False,filename='PersistencetLandscape',fileopt='overwrite')
     return url
 
 

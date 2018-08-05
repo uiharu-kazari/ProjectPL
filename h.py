@@ -25,12 +25,13 @@ Coding Steps:
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-import dionysus as d
+#dionysus is no longer used in this project
+#import dionysus as d
 import warnings
 from termcolor import colored
 from functools import reduce
 import time
-
+import os
 from scipy.spatial import distance
 
 
@@ -42,6 +43,7 @@ from scipy.spatial import distance
 def DateAdjC(array):
     """
     Select out date and adjusted closing prices
+    Designed for data from yahoo! finance
     """
     return array[['Date','Adj Close']]
 
@@ -66,39 +68,6 @@ def dualmap(func_iter,value):
     """
     return [func(value) for func in func_iter]
 
-
-
-##
-#Implementation Phase
-##
-
-#Read in csv file
-
-D=pd.read_csv('DJIA.csv')
-N=pd.read_csv('NASDAQ.csv')
-R=pd.read_csv('RU2K.csv')
-S=pd.read_csv('SP500.csv')
-
-#Stock indicies list
-SL=[D,N,R,S]
-
-SL=list(map(DateAdjC,SL))
-
-
-SL[0].columns=['Date','DJIA']
-SL[1].columns=['Date','NASDAQ']
-SL[2].columns=['Date','RU2K']
-SL[3].columns=['Date','SP500']
-
-#See if in adjusted close prices NaN exists.
-
-if True in set(list(map(lambda x: x.isna().values.any(),SL))):
-    warnings.warn(colored("Warning! NaN in input number",'blue'),SyntaxWarning)
-
-#natural log of closing prices
-SL=list(map(lambda x:logValue(x,1,1),SL))
-#SL is a list
-#This is the end of input and preprocessing data phase
 
 
 
